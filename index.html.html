@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Kalkulator Modulo</title>
+
+  <style>
+
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Poppins, sans-serif;
+    }
+
+    body{
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background:
+      linear-gradient(
+      135deg,
+      #0f172a,
+      #1e3a8a,
+      #06b6d4);
+
+      overflow: hidden;
+    }
+
+    .container{
+
+      width: 430px;
+      padding: 35px;
+
+      border-radius: 25px;
+
+      background:
+      rgba(255,255,255,0.12);
+
+      backdrop-filter: blur(15px);
+
+      border:
+      1px solid rgba(255,255,255,0.2);
+
+      box-shadow:
+      0 8px 32px rgba(0,0,0,0.3);
+
+      color: white;
+
+      animation: muncul 1s ease;
+    }
+
+    @keyframes muncul{
+      from{
+        transform: translateY(40px);
+        opacity: 0;
+      }
+
+      to{
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    h1{
+      text-align: center;
+      margin-bottom: 15px;
+      font-size: 40px;
+    }
+
+    .deskripsi{
+      text-align: center;
+      margin-bottom: 25px;
+      color: #dbeafe;
+      line-height: 1.5;
+    }
+
+    .rumus{
+
+      background:
+      rgba(255,255,255,0.15);
+
+      padding: 15px;
+
+      border-radius: 15px;
+
+      text-align: center;
+
+      margin-bottom: 25px;
+
+      font-size: 18px;
+      font-weight: bold;
+
+      color: #7dd3fc;
+    }
+
+    input{
+
+      width: 100%;
+      padding: 15px;
+
+      margin-bottom: 18px;
+
+      border: none;
+      outline: none;
+
+      border-radius: 15px;
+
+      background:
+      rgba(255,255,255,0.12);
+
+      color: white;
+
+      font-size: 17px;
+    }
+
+    input::placeholder{
+      color: #d1d5db;
+    }
+
+    button{
+
+      width: 100%;
+      padding: 15px;
+
+      border: none;
+      border-radius: 15px;
+
+      font-size: 18px;
+      font-weight: bold;
+
+      cursor: pointer;
+
+      background:
+      linear-gradient(
+      90deg,
+      #38bdf8,
+      #06b6d4);
+
+      color: white;
+
+      transition: 0.3s;
+    }
+
+    button:hover{
+
+      transform: scale(1.03);
+
+      box-shadow:
+      0 0 20px #38bdf8;
+    }
+
+    #hasil{
+
+      margin-top: 25px;
+
+      padding: 18px;
+
+      border-radius: 15px;
+
+      text-align: center;
+
+      font-size: 24px;
+      font-weight: bold;
+
+      display: none;
+
+      background:
+      rgba(255,255,255,0.15);
+
+      color: #7dd3fc;
+    }
+
+    .contoh{
+
+      margin-top: 30px;
+
+      background:
+      rgba(255,255,255,0.08);
+
+      padding: 20px;
+
+      border-radius: 20px;
+    }
+
+    .contoh h3{
+      margin-bottom: 12px;
+      color: #7dd3fc;
+    }
+
+    .contoh p{
+      margin-bottom: 10px;
+      color: #e5e7eb;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Modulo</h1>
+
+    <p class="deskripsi">
+      Program untuk menghitung
+      sisa hasil pembagian
+      menggunakan fungsi modulo
+    </p>
+
+    <div class="rumus">
+      a mod n = sisa pembagian a dengan n
+    </div>
+
+    <input
+    type="number"
+    id="angka"
+    placeholder="Masukkan angka">
+
+    <input
+    type="number"
+    id="modulus"
+    placeholder="Masukkan modulus">
+
+    <button onclick="hitungModulo()">
+      Hitung Modulo
+    </button>
+
+    <div id="hasil"></div>
+
+    <div class="contoh">
+
+      <h3>Contoh Soal</h3>
+
+      <p>17 mod 5 = 2</p>
+      <p>20 mod 2 = 0</p>
+      <p>43 mod 7 = 1</p>
+      <p>25 mod 4 = 1</p>
+      <p>99 mod 8 = 3</p>
+
+    </div>
+
+  </div>
+
+<script>
+
+function hitungModulo(){
+
+  let angka =
+  document.getElementById("angka").value;
+
+  let modulus =
+  document.getElementById("modulus").value;
+
+  if(angka == "" || modulus == ""){
+
+    alert("Masukkan angka terlebih dahulu!");
+    return;
+  }
+
+  let hasil = angka % modulus;
+
+  document.getElementById("hasil").style.display = "block";
+
+  document.getElementById("hasil").innerHTML =
+  angka + " mod " + modulus + " = " + hasil;
+
+}
+
+</script>
+
+</body>
+</html>
